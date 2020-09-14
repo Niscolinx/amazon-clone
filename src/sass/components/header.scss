@@ -1,0 +1,13 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #131921;
+    width: 100%;
+    padding: 1rem 2rem;
+
+    .header__logo{
+        float: left;
+        width: 100px;
+    }
+}
