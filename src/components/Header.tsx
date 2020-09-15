@@ -15,11 +15,17 @@ function Header() {
             </Link>
 
             <div className='header__searchBox'>
-                <select className='header__searchBox--select'>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                </select>
+               
+                <div className='header__selectBox'>
+                    <label>
+                        <select className='header__select'>
+                            <option className='header__options' selected> All </option>
+                            <option className='header__options'>Option 1</option>
+                            <option className='header__options'>Option 2</option>
+                            <option className='header__options'>Last long option</option>
+                        </select>
+                    </label>
+                </div>
                 <input type='text' className='header__searchBox--input' />
                 <SearchIcon className='header__searchBox--icon' />
             </div>
