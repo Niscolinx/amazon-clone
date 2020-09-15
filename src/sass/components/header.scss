@@ -4,10 +4,13 @@
     left: 0;
     background-color: #131921;
     width: 100%;
-    padding: 1rem;
-
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    
     .header__logo{
-        float: left;
         width: 100px;
+        margin-top: .6rem;
+        margin-right: .5rem;
     }
 }

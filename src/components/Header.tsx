@@ -1,10 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import SearchIcon from '@material-ui/icons/Search'
 
 function Header() {
     return (
         <nav className='header'>
-            {/* header logo */}
             <Link to='/login'>
                 <img
                     className='header__logo'
@@ -12,6 +12,35 @@ function Header() {
                     alt='logo'
                 />
             </Link>
+
+            <div className='header__searchBox'>
+                <input type='text' className='header__searchInput'/>
+                <SearchIcon />
+            </div>
+
+            <div className="header__nav">
+
+                <NavLink to='/'>
+                    <div className="header__nav--options">
+                        <span>Hello, sign in</span>
+                        <span>Acounts & Lists</span> 
+                    </div>
+                </NavLink>
+
+                <NavLink to='/'>
+                    <div className="header__nav--options">
+                        <span>Returns</span>
+                        <span>& Order</span> 
+                    </div>
+                </NavLink>
+                
+                <NavLink to='/'>
+                    <div className="header__nav--options">
+                        <span>cart logo</span>
+                        <span>Cart</span> 
+                    </div>
+                </NavLink>
+            </div>
         </nav>
     )
 }
