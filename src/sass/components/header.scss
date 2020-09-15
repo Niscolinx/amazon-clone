@@ -1,4 +1,4 @@
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -6,11 +6,99 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding: .5rem;
-    
-    .header__logo{
+    padding: 0 .5rem;
+
+    &__logo {
         width: 100px;
         margin-top: .6rem;
         margin-right: .5rem;
+        object-fit: contain;
+    }
+
+    &__searchBox {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border: none;
+        flex: 1;
+        margin: 0 2rem;
+
+        &--select {
+           width: 268px;
+           padding: 5px;
+           font-size: 16px;
+           line-height: 1;
+           border: 0;
+           border-radius: 5px;
+           height: 34px;
+           background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right;
+           appearance: none;
+           background-position-x: 244px;
+
+
+        }
+
+        &--icon {
+            background-color: #febd69;
+            color: rgb(31, 29, 29);
+            height: 2.4rem !important;
+            width: 2.7rem !important;
+            padding: .3rem;
+            border-radius: 0 3px 3px 0;
+
+        }
+
+        &--input {
+            border-radius: 3px;
+            height: 2.4rem;
+            font-size: 15px;
+            padding: .5rem;
+            border: none;
+            width: 100%;
+            outline-color: #febd69;
+            margin-right: -2.7rem;
+
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #fff;
+        padding: 1rem;
+
+        &:hover {
+            border: 1px solid #fff;
+        }
+    }
+
+    &__options {
+        display: flex;
+        flex-direction: column;
+
+        &-light {
+            font-size: .8rem;
+            color: #d3cece
+        }
+
+        &-bold {
+            font-weight: 700;
+            font-size: .9rem;
+        }
+
+        &--cart {
+            display: flex;
+            align-items: center;
+
+            &-count {
+                margin-right: .1rem;
+            }
+        }
     }
 }
