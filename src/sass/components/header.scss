@@ -8,6 +8,20 @@
     align-items: center;
     padding: 0 .5rem;
 
+
+    &__menu{
+        color: $primary-color-2;
+        margin: 0 .5rem;
+        cursor: pointer;
+        border: 1px solid transparent;
+        
+        &:hover{
+            border-radius: 2px;   
+            transition: all .5s;
+            border: 1px solid $primary-color-2;
+        }
+    }
+
     &__logo {
         width: 100px;
         margin-top: .6rem;
@@ -24,26 +38,38 @@
         flex: 1;
         margin: 0 2rem;
 
-        &:hover {
-            background: red;
+        &:active,
+        &:focus {
+            border: 1px solid $secondary-color-1;
+            outline: none;
+            box-shadow: 0 0 3px 2px $secondary-color-2;
+            border-radius: 5px;
+
         }
 
         .header__selectBox {
-            position: relative;
             height: 2.4rem;
-            background-color: $primary-color-3;
+            background-color: $primary-color-5;
             border-radius: 5px 0 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid $primary-color-4;
+            width: auto;
 
-
-            &:after {
-                content: '▼';
-                right: 11px;
-                top: 1px;
-                height: 2.4rem;
-                padding: 8px 0px 0px 8px;
-                position: absolute;
-                pointer-events: none;
+            &:hover {
+                background-color: $primary-color-4;
             }
+
+            // &:after {
+            //     content: '▼';
+            //     right: 11px;
+            //     top: 1px;
+            //     height: 2.4rem;
+            //     padding: 8px 0px 0px 8px;
+            //     position: absolute;
+            //     pointer-events: none;
+            // }
 
 
             .header__select {
@@ -59,13 +85,14 @@
                 color: $primary-color-1;
                 outline: none;
                 border: none;
+                width: 100%;
                 background-color: inherit;
-                background-image: none;
-                -ms-word-break: normal;
                 word-break: normal;
 
                 &:hover {
                     background-color: $primary-color-4;
+                    border-radius: 5px 0 0 5px;
+
                 }
 
                 .header__options {
@@ -74,6 +101,8 @@
             }
 
         }
+
+
 
 
         &--input {
@@ -88,6 +117,7 @@
             &:active,
             &:focus {
                 border: 1px solid $secondary-color-1;
+                outline: none;
                 box-shadow: 0 0 3px 2px $secondary-color-2;
 
             }
@@ -107,6 +137,7 @@
 
     }
 
+
     &__nav {
         display: flex;
         align-items: center;
@@ -117,15 +148,33 @@
         text-decoration: none;
         color: $primary-color-2;
         padding: 1rem;
-
+        border: 1px solid transparent;
+        
         &:hover {
             border: 1px solid $primary-color-2;
         }
     }
 
+    &__dropdown {
+        position: absolute;
+        bottom: 11px;
+        right: -9px;
+        color: $primary-color-3;
+    }
+
+    &__link--dropdown {
+        position: relative;
+    }
+
+    &__options--dropdown {
+        display: flex;
+        position: relative;
+    }
+
     &__options {
         display: flex;
         flex-direction: column;
+
 
         &-light {
             font-size: .8rem;
