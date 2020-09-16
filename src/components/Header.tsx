@@ -23,7 +23,7 @@ function Header() {
                 <div className='header__selectBox'>
                     <label>
                         <select className='header__select'>
-                            <option className='header__options' selected>
+                            <option className='header__options' value='All'>
                                 All the things happening
                             </option>
                             <option className='header__options'>

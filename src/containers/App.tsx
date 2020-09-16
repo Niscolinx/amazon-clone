@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 
 import Header from '../components/Header'
+import Layout from './Layout'
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path= '/shop'><h1>Shop</h1></Route>
       </Switch>
       </div>
+
+      <Layout/>
     </div>
   );
 }

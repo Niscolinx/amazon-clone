@@ -12,20 +12,17 @@
     &__menu{
         color: $primary-color-2;
         margin: 0 .5rem;
+        padding: .2rem;
         cursor: pointer;
-        border: 1px solid transparent;
+        border: 1px solid $primary-color-4;
+        border-radius: 2px;   
         
-        &:hover{
-            border-radius: 2px;   
-            transition: all .5s;
-            border: 1px solid $primary-color-2;
-        }
     }
 
     &__logo {
         width: 100px;
         margin-top: .6rem;
-        margin-right: .5rem;
+        margin-right: 2rem;
         object-fit: contain;
     }
 
@@ -149,7 +146,7 @@
         color: $primary-color-2;
         padding: 1rem;
         border: 1px solid transparent;
-        
+
         &:hover {
             border: 1px solid $primary-color-2;
         }
