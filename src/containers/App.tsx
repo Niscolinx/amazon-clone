@@ -9,10 +9,8 @@ function App() {
     <div className="app">
       <Header/>
       <div className='main'>
-      <h2>Welcome to amazon clone</h2>
-
       <Switch>
-        <Route path= '/' exact><h1>Home</h1></Route>
+        <Route path= '/' exact><h1>Amazon clone</h1></Route>
         <Route path= '/checkout'><h1>Checkout</h1></Route>
         <Route path= '/shop'><h1>Shop</h1></Route>
       </Switch>

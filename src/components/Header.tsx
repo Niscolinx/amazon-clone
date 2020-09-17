@@ -24,7 +24,7 @@ function Header() {
                     <label>
                         <select className='header__select'>
                             <option className='header__options' value='All'>
-                                All the things happening
+                                All
                             </option>
                             <option className='header__options'>
                                 Option 1
