@@ -10,7 +10,7 @@ function Slider() {
     ]
 
     return (
-        <div>
+        <div className='slider'>
             hello world
         </div>
     )
