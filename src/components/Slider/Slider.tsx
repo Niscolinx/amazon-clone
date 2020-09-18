@@ -1,30 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
+import SlideComponent from './SliderComponent'
+import LeftArrow from './Arrows/LeftArrow'
+import RightArrow from './Arrows/RightArrow'
 
-function Slider() {
-
+function Slider(props: any) {
     const getWidth = () => window.innerWidth
-    interface myStyles {
-        transform: string;
-        transition: string;
+
+    const [state, setState] = useState({
+        currentSlide: 0,
+        transform: 0,
+    })
+
+    const { currentSlide } = state
+    const prevSlide = () => {
+        if (currentSlide === 0) {
+            setState({
+                ...state,
+                currentSlide: props.images.length - 1,
+                transform: (props.images.length - 1) * getWidth(),
+            })
+        } else {
+            setState({
+                ...state,
+                currentSlide: currentSlide - 1,
+                transform: (currentSlide - 1) * getWidth(),
+            })
+        }
     }
 
-    const customStyles: myStyles = {
-        transform: 'translateX(-432px)',
-        transition: 'all ease-in 4s'
+    const nextSlide = () => {
+        if (currentSlide === props.images.length - 1) {
+            setState({
+                ...state,
+                currentSlide: 0,
+                transform: 0
+            })
+        } else {
+            setState({
+                ...state,
+                currentSlide: currentSlide + 1,
+                transform: (currentSlide + 1) * getWidth(),
+            })
+        }
     }
 
-    console.log('the inner width is ', getWidth())
-
-    const images = [
-        'https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_45M_v2_1x._CB432458380_.jpg',
-        'https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Computers_1x._CB432469755_.jpg',
-        'https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Beauty_v2_en_US_1x._CB429089975_.jpg',
-        'https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Home_v2_en_US_1x._CB429090084_.jpg',
-    ]
+    console.log('the state', state)
 
     return (
-        <div className='slider' style={customStyles}>
-            hello world
+        <div className='slider'>
+            <SlideComponent
+                images={props.images}
+                transform={state.transform}
+                width={getWidth()}
+            />
+            <div className='slider__leftArrow'>
+                <LeftArrow handleClick={prevSlide} />
+            </div>
+            <div className='slider__rightArrow'>
+                <RightArrow handleClick={nextSlide} />
+            </div>
         </div>
     )
 }

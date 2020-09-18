@@ -1,7 +1,52 @@
-.slider{
-    background-color: red;
-    width: 100%;
+.slider {
+    position: relative;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    &__rightArrow,
+    &__leftArrow {
+        position: absolute;
+        top: 20%;
+    }
+
+    &__rightArrow {
+        right: 3%;
+    }
+    &__leftArrow {
+        left: 3%;
+    }
+}
+
+.sliderComponent {
     height: 90vh;
     background-size: cover;
-    overflow: hidden;
+    display: flex;
+    transition: all ease-in-out .5s;
+}
+
+.slide {
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    color: $primary-color-1;
+    align-items: center;
+    cursor: pointer;
+    transition: all ease-in .3s;
+
+    &:hover {
+        transform: scale(1.15);
+    }
+
+    &__left,
+    &__right{
+        font-size: 2.6rem !important;
+    }
+
 }
