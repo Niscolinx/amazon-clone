@@ -37,10 +37,10 @@ html {
     font-size: 130.5% // 1rem = 12px therefore 18/16 = 75%
   }
   @include respond(desktop) {
-    font-size: 100.5% // 1rem = 12px therefore 18/16 = 75%
+    font-size: 100.5% // 1rem = 12px therefore 8/16 = 75%
   }
   @include respond(tab-land) {
-    font-size: 90% // 1rem = 9px therefore 9/16 = 56.25%
+    font-size: 90% // 1rem = 9px therefore 5/16 = 56.25%
   }
   
   @include respond(tab-port) {
