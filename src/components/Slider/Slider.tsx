@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import SlideComponent from './SliderComponent'
 import LeftArrow from './Arrows/LeftArrow'
 import RightArrow from './Arrows/RightArrow'
-import Dots from './Dots'
 
 const Slider = (props: any) => {
     const getWidth = () => window.innerWidth
@@ -45,7 +44,13 @@ const Slider = (props: any) => {
         }
     }
 
-    console.log('the state', state)
+    // const dotClick = (n: number) => {
+    //     setState({
+    //         ...state,
+    //         currentSlide: n,
+    //         transform: n * getWidth()
+    //     })
+    // }
 
     return (
         <div className='slider'>
@@ -61,10 +66,10 @@ const Slider = (props: any) => {
                 <RightArrow handleClick={nextSlide} />
             </div>
 
-            <div className='Slider__dots'>
-                <Dots dots={currentSlide} images={props.images} 
+            {/* <div className='Slider__dots'>
+                <Dots dots={currentSlide} images={props.images} handleClick={(n:number) => dotClick(n)}
                 />
-            </div>
+            </div> */}
         </div>
     )
 }

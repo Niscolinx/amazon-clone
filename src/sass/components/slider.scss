@@ -22,13 +22,12 @@
     &__dots {
         position: absolute;
         bottom: 5%;
-        transform: translateX(-50%, 50%);
-        background-color: red;
+       // background-color: red;
     }
 }
 
 .sliderComponent {
-    height: 90vh;
+    height: 86vh;
     background-size: cover;
     display: flex;
     transition: all ease-in-out .5s;
@@ -60,15 +59,20 @@
 }
 
 .dots {
-
-    border: 1px solid black;
-    color: blue;
-    background-color: pink;
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 
     .dot {
-        border: 1px solid purple;
-        color: orangered;
-        background-color: brown;
+        cursor: pointer;
+        background-color: $primary-color-3;
+        padding: 10px;
+        margin-right: 10px;
+        border-radius: 50%;
+        box-shadow: 0px 1px 9px 2px;
+
     }
 }

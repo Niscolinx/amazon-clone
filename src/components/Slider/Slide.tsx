@@ -4,13 +4,11 @@ const Slide = (props: any) => {
     
     const customStyles = {
         backgroundImage: `url(${props.image})`,
-        width: '1000%'
+        width: '100%'
     }
 
     return (
-        <div className='slide' style={customStyles}>
-            slide
-        </div>
+        <div className='slide' style={customStyles}/>
     )
 }
 
