@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SlideComponent from './SliderComponent'
 import LeftArrow from './Arrows/LeftArrow'
 import RightArrow from './Arrows/RightArrow'
+import Dots from './Dots'
 
 function Slider(props: any) {
     const getWidth = () => window.innerWidth
@@ -58,6 +59,10 @@ function Slider(props: any) {
             </div>
             <div className='slider__rightArrow'>
                 <RightArrow handleClick={nextSlide} />
+            </div>
+
+            <div className='Slider__dots'>
+                <Dots dots={currentSlide}/>
             </div>
         </div>
     )

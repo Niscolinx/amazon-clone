@@ -14,8 +14,16 @@
     &__rightArrow {
         right: 3%;
     }
+
     &__leftArrow {
         left: 3%;
+    }
+
+    &__dots {
+        position: absolute;
+        bottom: 5%;
+        transform: translateX(-50%, 50%);
+        background-color: red;
     }
 }
 
@@ -45,8 +53,22 @@
     }
 
     &__left,
-    &__right{
+    &__right {
         font-size: 2.6rem !important;
     }
 
+}
+
+.dots {
+
+    border: 1px solid black;
+    color: blue;
+    background-color: pink;
+
+
+    .dot {
+        border: 1px solid purple;
+        color: orangered;
+        background-color: brown;
+    }
 }
