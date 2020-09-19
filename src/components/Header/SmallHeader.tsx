@@ -6,10 +6,13 @@ const SmallHeader = () => {
     return (
         <div className='smallHeader'>
             <div className='smallHeader-1'>
+                <div className="smallHeader-1__box">
                 <LocationOnIcon />
                 <div className='delivery'>
                     <span className='delivery__to'>Deliver to</span>
                     <span className='delivery__country'>Nigeria</span>
+                </div>
+
                 </div>
             </div>
             <div className='smallHeader-2'>

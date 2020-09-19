@@ -1,17 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SlideComponent from './SliderComponent'
 import LeftArrow from './Arrows/LeftArrow'
 import RightArrow from './Arrows/RightArrow'
 
-const Slider = (props: any) => {
-    const getWidth = () => window.innerWidth
+interface slideProps {
+    images: string[]
+    autoPlay: number
+}
 
+const getWidth = () => window.innerWidth
+const Slider = (props: slideProps) => {
     const [state, setState] = useState({
         currentSlide: 0,
         transform: 0,
     })
-
     const { currentSlide } = state
+
+    const autoPlayRef: any = useRef()
+
+    useEffect(() => {
+        autoPlayRef.current = nextSlide
+    })
+
+    useEffect(() => {
+        const play = () => {
+            autoPlayRef.current()
+        }
+        setInterval(play, props.autoPlay * 1000)
+    })
+
     const prevSlide = () => {
         if (currentSlide === 0) {
             setState({

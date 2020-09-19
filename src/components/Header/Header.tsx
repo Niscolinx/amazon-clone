@@ -12,16 +12,21 @@ const Header = () => {
     return (
         <div>
             <nav className='header'>
-                <div className='header__menu'>
-                    <MenuIcon className='hamburger' />
+                <div className='header__logo-box'>
+                    <div className='header__hamburger'>
+                        <MenuIcon className='hamburger' />
+                    </div>
+
+                    <div className="header__logo">
+                    <Link to='/login'>
+                        <img
+                            className='logo'
+                            src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
+                            alt='logo'
+                        />
+                    </Link>
+                    </div>
                 </div>
-                <Link to='/login'>
-                    <img
-                        className='header__logo'
-                        src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
-                        alt='logo'
-                    />
-                </Link>
 
                 <div className='header__searchBox'>
                     <div className='header__selectBox'>
