@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Dots(props: any) {
-    const dots = props.dots.map((dot:number, i:number) => {
-        console.log('the inner dots', dot, i)
+const Dots = (props: any) => {
+    const dots = props.images.map((dot:number, i:number) => {
+        console.log('the inner dots', dot, i, props.dots)
         return <div key={dot + i} className='dot' style={{ backgroundColor: 'red' }}/>
     })
 

@@ -5,7 +5,7 @@ import ShoppingBasket from '@material-ui/icons/ShoppingBasket'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import MenuIcon from '@material-ui/icons/Menu';
 
-function Header() {
+const Header = () => {
     return (
         <nav className='header'>
             <div className="header__menu">

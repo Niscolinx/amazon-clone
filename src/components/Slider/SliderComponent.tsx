@@ -1,7 +1,7 @@
 import React from 'react'
 import Slide from './Slide'
 
-function SliderComponent(props: any) {
+const SliderComponent = (props: any) => {
     interface myProps {
         transform: any
         width: any

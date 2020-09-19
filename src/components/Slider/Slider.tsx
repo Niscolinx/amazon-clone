@@ -4,7 +4,7 @@ import LeftArrow from './Arrows/LeftArrow'
 import RightArrow from './Arrows/RightArrow'
 import Dots from './Dots'
 
-function Slider(props: any) {
+const Slider = (props: any) => {
     const getWidth = () => window.innerWidth
 
     const [state, setState] = useState({
@@ -34,7 +34,7 @@ function Slider(props: any) {
             setState({
                 ...state,
                 currentSlide: 0,
-                transform: 0
+                transform: 0,
             })
         } else {
             setState({
@@ -62,7 +62,8 @@ function Slider(props: any) {
             </div>
 
             <div className='Slider__dots'>
-                <Dots dots={currentSlide}/>
+                <Dots dots={currentSlide} images={props.images} 
+                />
             </div>
         </div>
     )

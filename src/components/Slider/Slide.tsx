@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Slide(props: any) {
+const Slide = (props: any) => {
     
     const customStyles = {
         backgroundImage: `url(${props.image})`,
