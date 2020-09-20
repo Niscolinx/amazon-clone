@@ -5,7 +5,7 @@ import RightArrow from './Arrows/RightArrow'
 
 interface slideProps {
     images: string[]
-    autoPlay: number
+    autoPlay?: number
 }
 
 const getWidth = () => window.innerWidth
@@ -19,6 +19,7 @@ const Slider = (props: slideProps) => {
     const autoPlayRef: any = useRef()
 
     useEffect(() => {
+       // transFormedImage()
         autoPlayRef.current = nextSlide
     })
 
@@ -26,8 +27,32 @@ const Slider = (props: slideProps) => {
         const play = () => {
             autoPlayRef.current()
         }
-        setInterval(play, props.autoPlay * 1000)
-    })
+    
+        if(props.autoPlay){
+            const interval = setInterval(play, props.autoPlay * 1000)
+
+            return () => {
+                clearInterval(interval)
+            }
+        }
+    }, [props.autoPlay])
+
+    const transFormedImage = () => {
+        const images: string[]= props.images
+        console.log(images)
+        
+        const middleIndex:number = Math.floor(props.images.length / 2)
+        const middle:string = props.images[middleIndex]
+        const prevImage:string = props.images[middleIndex - 1]
+        const nextImage:string = props.images[middleIndex + 1]
+
+        // const imageView = {
+        //     leftImage: 0
+        //     currentImage:  
+        //     rightImage: 
+        // }
+
+    }
 
     const prevSlide = () => {
         if (currentSlide === 0) {
