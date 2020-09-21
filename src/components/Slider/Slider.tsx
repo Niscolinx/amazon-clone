@@ -9,26 +9,34 @@ interface slideProps {
 }
 
 const getWidth = () => window.innerWidth
+
 const Slider = (props: slideProps) => {
+
+    const firstSlide = props.images[0]
+    const secondSlide = props.images[1]
+    const lastSlide = props.images[props.images.length - 1]
+
     const [state, setState] = useState({
         currentSlide: 0,
         transform: 0,
+        _slides: [lastSlide, firstSlide, secondSlide]
     })
-    const { currentSlide } = state
+    let { currentSlide } = state
 
     const autoPlayRef: any = useRef()
+    const transitionRef: any = useRef()
 
     useEffect(() => {
-       // transFormedImage()
         autoPlayRef.current = nextSlide
+        transitionRef.current = smoothTransition
     })
 
     useEffect(() => {
         const play = () => {
             autoPlayRef.current()
         }
-    
-        if(props.autoPlay){
+
+        if (props.autoPlay) {
             const interval = setInterval(play, props.autoPlay * 1000)
 
             return () => {
@@ -37,21 +45,8 @@ const Slider = (props: slideProps) => {
         }
     }, [props.autoPlay])
 
-    const transFormedImage = () => {
-        const images: string[]= props.images
-        console.log(images)
-        
-        const middleIndex:number = Math.floor(props.images.length / 2)
-        const middle:string = props.images[middleIndex]
-        const prevImage:string = props.images[middleIndex - 1]
-        const nextImage:string = props.images[middleIndex + 1]
-
-        // const imageView = {
-        //     leftImage: 0
-        //     currentImage:  
-        //     rightImage: 
-        // }
-
+    const smoothTransition = () => {
+ 
     }
 
     const prevSlide = () => {
