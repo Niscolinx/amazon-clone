@@ -21,7 +21,7 @@ const Slider = (props: slideProps) => {
         transition: 0.45,
         _slides: [lastSlide, firstSlide, secondSlide],
     })
-    let { currentSlide, _slides, transform } = state
+    let { currentSlide, _slides, transform , transition} = state
 
     const autoPlayRef: any = useRef()
     const transitionRef: any = useRef()
@@ -36,12 +36,16 @@ const Slider = (props: slideProps) => {
             autoPlayRef.current()
         }
 
-        const smooth = () => {
-            transitionRef.current()
+        const smooth = (e:any) => {
+            if(e.target.className === 'SliderComponent'){
+                //transitionRef.current()
+                console.log('the e target', e.target.className)
+            }
         }
 
         const transitionEnd:any = window.addEventListener('transitionend', smooth)
         let interval: any = null
+
         if (props.autoPlay) {
             interval = setInterval(play, props.autoPlay * 1000)
         }
@@ -54,7 +58,19 @@ const Slider = (props: slideProps) => {
         }
     }, [props.autoPlay])
 
+    useEffect(() =>{
+        if (transition === 0) {
+            setState({
+                ...state,
+                transition: .45
+            })
+        }
+    }, [state,transition])
+
     const smoothTransition = () => {
+        console.log('the smooth transition', state)
+        let _slides: string[] = []
+
         if (currentSlide === _slides.length - 1) {
             _slides = [_slides[_slides.length - 2], lastSlide, firstSlide]
         } else if (currentSlide === 0) {
@@ -72,6 +88,7 @@ const Slider = (props: slideProps) => {
     }
 
     const nextSlide = () => {
+        console.log('the nextSlide')
         setState({
             ...state,
             currentSlide:
@@ -88,8 +105,6 @@ const Slider = (props: slideProps) => {
             transform: 0,
         })
     }
-
-    console.log('the next Slide', _slides, currentSlide)
 
     // const dotClick = (n: number) => {
     //     setState({

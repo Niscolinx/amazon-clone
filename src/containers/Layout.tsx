@@ -12,7 +12,7 @@ function Layout(props: any) {
 
     return (
         <>
-            <Slider images={images} autoPlay={5}/>
+            <Slider images={images}/>
             <div>
                 <main className='content'>{props.children}</main>
             </div>
