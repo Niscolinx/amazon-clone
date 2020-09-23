@@ -1,10 +1,12 @@
 import React from 'react'
 
 const Slide = (props: any) => {
+
+    const getWidth = () => window.innerWidth
     
     const customStyles = {
         backgroundImage: `url(${props.image})`,
-        width: '100%'
+        width: `${getWidth()}px`
     }
 
     return (

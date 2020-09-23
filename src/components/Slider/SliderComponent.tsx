@@ -10,12 +10,13 @@ interface myProps {
 }
 
 const SliderComponent = (props: myProps) => {
+  //  console.log('slide component', props)
 
     const translate = `translateX(-${props.transform}px)`
 
     const customStyles = {
         transform: translate,
-        width: props.width * props.images.length,
+        width: `${props.width}px`,
         transition: `transform ease-out ${props.transition}s`
     }
 

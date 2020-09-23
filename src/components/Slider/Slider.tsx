@@ -18,17 +18,20 @@ const Slider = (props: slideProps) => {
     const [state, setState] = useState({
         currentSlide: 0,
         transform: getWidth(),
-        transition: 0.45,
+        transition: .45,
         _slides: [lastSlide, firstSlide, secondSlide],
     })
     let { currentSlide, _slides, transform , transition} = state
 
+
     const autoPlayRef: any = useRef()
     const transitionRef: any = useRef()
+    const resizeRef:any = useRef()
 
     useEffect(() => {
         autoPlayRef.current = nextSlide
         transitionRef.current = smoothTransition
+        resizeRef.current = handleResize
     })
 
     useEffect(() => {
@@ -37,13 +40,18 @@ const Slider = (props: slideProps) => {
         }
 
         const smooth = (e:any) => {
-            if(e.target.className === 'SliderComponent'){
-                //transitionRef.current()
-                console.log('the e target', e.target.className)
+            if(e.target.className.includes('sliderComponent')){
+                transitionRef.current()
             }
         }
 
+        const size = () => {
+            resizeRef.current()
+        }
+
         const transitionEnd:any = window.addEventListener('transitionend', smooth)
+        const resize:any = window.addEventListener('resize', size)
+
         let interval: any = null
 
         if (props.autoPlay) {
@@ -55,29 +63,43 @@ const Slider = (props: slideProps) => {
                 clearInterval(interval)
             }
             window.removeEventListener('transitionend',transitionEnd)
+            window.removeEventListener('resize', resize)
         }
-    }, [props.autoPlay])
+    }, [])
 
     useEffect(() =>{
+        console.log('the transition state', state)
         if (transition === 0) {
             setState({
                 ...state,
-                transition: .45
+                transition: .45,
             })
         }
     }, [state,transition])
 
-    const smoothTransition = () => {
-        console.log('the smooth transition', state)
-        let _slides: string[] = []
 
-        if (currentSlide === _slides.length - 1) {
-            _slides = [_slides[_slides.length - 2], lastSlide, firstSlide]
+    const handleResize = () => {
+        setState({
+            ...state,
+            transition: 0,
+            transform: getWidth()
+        })
+    }
+
+    const smoothTransition = () => {
+
+        console.log('the smooth transition', _slides)
+
+        //let _slides:any = []
+        
+        if (currentSlide === props.images.length - 1) {
+            _slides = [props.images[props.images.length - 2], lastSlide, firstSlide]
         } else if (currentSlide === 0) {
             _slides = [lastSlide, firstSlide, secondSlide]
         } else {
-            _slides = _slides.slice(currentSlide - 1, currentSlide + 2)
+            _slides = props.images.slice(currentSlide - 1, currentSlide + 2)
         }
+
 
         setState({
             ...state,
@@ -88,20 +110,21 @@ const Slider = (props: slideProps) => {
     }
 
     const nextSlide = () => {
-        console.log('the nextSlide')
+        console.log('the next slide', _slides)
         setState({
             ...state,
             currentSlide:
-                currentSlide === _slides.length - 1 ? 0 : currentSlide + 1,
+                currentSlide === props.images.length - 1 ? 0 : currentSlide + 1,
             transform: transform + getWidth(),
         })
     }
 
     const prevSlide = () => {
+        console.log('the prev slide', _slides)
         setState({
             ...state,
             currentSlide:
-                currentSlide === 0 ? _slides.length - 1 : currentSlide - 1,
+                currentSlide === 0 ? props.images.length - 1 : currentSlide - 1,
             transform: 0,
         })
     }
@@ -119,7 +142,7 @@ const Slider = (props: slideProps) => {
             <SlideComponent
                 images={_slides}
                 transform={state.transform}
-                width={getWidth()}
+                width={getWidth() * _slides.length}
                 transition={state.transition}
             />
             <div className='slider__leftArrow'>
