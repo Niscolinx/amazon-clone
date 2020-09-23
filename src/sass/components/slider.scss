@@ -9,6 +9,9 @@
     &__leftArrow {
         position: absolute;
         top: 20%;
+        background-color: black;
+        border-radius: 50%;
+        padding: .2rem;
     }
 
     &__rightArrow {
@@ -22,6 +25,7 @@
     &__dots {
         position: absolute;
         bottom: 5%;
+        width: 100%;
        // background-color: red;
     }
 }
@@ -34,6 +38,7 @@
 }
 
 .slide {
+    height: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

@@ -4,7 +4,7 @@ import {Switch, Route} from 'react-router-dom'
 import Header from '../components/Header/Header'
 import Layout from './Layout'
 
-function App() {
+function App(props: any) {
   return (
     <div className="app">
       <Header/>
@@ -12,7 +12,7 @@ function App() {
     
       </div>
 
-      <Layout/>
+      <Layout slides={props.images}/>
     </div>
   );
 }

@@ -4,13 +4,14 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import './sass/main.scss'
 import App from './containers/App'
 import * as serviceWorker from './serviceWorker'
+import images from './images'
 
 ReactDOM.render(
-    <React.StrictMode>
+    <>
         <Router>
-            <App />
+            <App images={images}/>
         </Router>
-    </React.StrictMode>,
+    </>,
     document.getElementById('root')
 )
 
