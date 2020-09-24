@@ -3,7 +3,6 @@ import SlideComponent from './SliderComponent'
 import LeftArrow from './Arrows/LeftArrow'
 import RightArrow from './Arrows/RightArrow'
 import Slide from './Slide'
-import Dots from './Dots'
 
 interface slideProps {
     images: string[]
@@ -136,13 +135,13 @@ const Slider = (props: slideProps) => {
         })
     }
 
-    const dotClick = (n: number) => {
-        setState({
-            ...state,
-            currentSlide: n,
-            transform: n * getWidth()
-        })
-    }
+    // const dotClick = (n: number) => {
+    //     setState({
+    //         ...state,
+    //         currentSlide: n,
+    //         transform: n * getWidth()
+    //     })
+    // }
 
     return (
         <div className='slider'>
@@ -167,10 +166,10 @@ const Slider = (props: slideProps) => {
                 <RightArrow handleClick={nextSlide} />
             </div>
 
-            <div className='slider__dots'>
+            {/* <div className='slider__dots'>
                 <Dots dots={currentSlide} images={slides} handleClick={(n:number) => dotClick(n)}
                 />
-            </div>
+            </div> */}
         </div>
     )
 }
