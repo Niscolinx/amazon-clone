@@ -1,0 +1,22 @@
+.categories{
+   display: flex;
+    width: 100%;
+//    grid-template-columns: repeat(2, 1fr);
+//    grid-template-rows: repeat(2, 1fr);
+   
+
+
+    &-card{
+        //max-height: 54.6px;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &__image{
+            max-width: 200px;
+            background-color: gold;
+        }
+    }
+}

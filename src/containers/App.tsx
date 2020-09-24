@@ -5,11 +5,10 @@ import Header from '../components/Header/Header'
 import Layout from './Layout'
 
 function App(props: any) {
-
     return (
         <div className='app'>
             <Header />
-            <Layout slides={props.images} />
+            <Layout slides={props.images}/>
         </div>
     )
 }

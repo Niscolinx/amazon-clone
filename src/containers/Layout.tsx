@@ -6,6 +6,7 @@ import Concert from '../images/concert.jpg'
 import Banjo from '../images/banjo.jpg'
 import About from '../images/About.jpg'
 import download from '../images/download.jpg'
+import Categories from '../components/Catogories'
 
 function Layout(props: any) {
     // const images = [Chalkboard, Computer, Concert, download, Banjo, About]
@@ -17,12 +18,12 @@ function Layout(props: any) {
     ]
 
     return (
-        <>
+        <div className='layout'>
             <Slider images={images} />
-            <div>
-                <main className='content'>{props.children}</main>
+            <div className='content'>
+                <Categories/>
             </div>
-        </>
+        </div>
     )
 }
 
