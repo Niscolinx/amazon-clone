@@ -144,7 +144,7 @@ const Slider = (props: slideProps) => {
     // }
 
     return (
-        <div className='slider'>
+        <div className='slidert'>
             <SlideComponent
                 // images={_slides}
                 transform={transform}
