@@ -24,7 +24,7 @@ const Slider = (props: slideProps) => {
         transition: 0.45,
         _slides: [lastSlide, firstSlide, secondSlide],
     })
-    const { currentSlide, _slides, transform, transition } = states
+    const { currentSlide, _slides, transform, transition } = state
 
     const autoPlayRef: any = useRef()
     const transitionRef: any = useRef()
